@@ -10,6 +10,6 @@ data class Task(
     @PrimaryKey(autoGenerate = true) val id: Int? = null ,
     @ColumnInfo(name = "task_title") val title: String? = null,
     val description: String? = null,
-    val date: Int? = null,
+    val date: Long? = null,
     val isDone:Boolean? = false ,
 )

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.android.todoapp_android.R
 import com.example.android.todoapp_android.databinding.ActivityHomeBinding
 import com.example.android.todoapp_android.databinding.FragmentTasksListsBinding
+import com.example.android.todoapp_android.ui.addtask.AddTaskBottomSheet
 import com.example.android.todoapp_android.ui.home.lists.TasksListsFragment
 import com.example.android.todoapp_android.ui.home.settings.SettingsFragment
 
@@ -30,6 +31,16 @@ class HomeActivity : AppCompatActivity() {
             true
         }
 
+        binding.addBtn.setOnClickListener {
+            showAddTaskBottomSheet()
+        }
+
+    }
+
+    private fun showAddTaskBottomSheet() {
+
+        val addTaskBottomSheet = AddTaskBottomSheet()
+        addTaskBottomSheet.show(supportFragmentManager , null)
     }
 
     private fun setCurrentFragment(firstFragment: Fragment) {
