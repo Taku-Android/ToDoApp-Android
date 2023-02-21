@@ -10,7 +10,7 @@ interface TaskDao {
     fun getAll(): List<Task>
 
     @Query("SELECT * FROM tasks WHERE date LIKE:date")
-    fun loadAllByDate(date: Int?): List<Task>
+    fun loadAllByDate(date: Long?): List<Task>
 
 
     /*

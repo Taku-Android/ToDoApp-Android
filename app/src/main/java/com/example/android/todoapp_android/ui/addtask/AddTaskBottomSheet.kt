@@ -31,6 +31,13 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
 
     }
 
+    var onDismissListener: OnDismissListener? = null
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        onDismissListener?.onDismiss()
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -87,7 +94,8 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
                     date = currentDate.timeInMillis
                 ))
 
-            showTaskInsertedDialoge()
+
+        showTaskInsertedDialoge()
 
     }
 
@@ -113,6 +121,12 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
     }
 
     var currentDate = Calendar.getInstance()
+    init {
+        currentDate.set(Calendar.HOUR , 0)
+        currentDate.set(Calendar.MINUTE , 0)
+        currentDate.set(Calendar.SECOND , 0)
+        currentDate.set(Calendar.MILLISECOND , 0)
+    }
     private fun showDatePicker() {
 
         val datePicker = DatePickerDialog(requireActivity() ,
